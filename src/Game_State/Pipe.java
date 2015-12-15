@@ -3,6 +3,7 @@ package Game_State;
 public class Pipe extends PhysicalObject {
 	int speedX;
 	int speedY;
+	int x;
 	
 	public Pipe() {
 		// TODO Auto-generated constructor stub
