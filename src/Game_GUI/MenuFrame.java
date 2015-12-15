@@ -19,5 +19,4 @@ public class MenuFrame extends JFrame {
 		this.getContentPane().setBackground(Color.GREEN); //?
 		this.setVisible(true);
 	}
-
 }
