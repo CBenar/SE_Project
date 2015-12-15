@@ -9,14 +9,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class GameFrame extends JFrame {
+public class GamePanel extends JFrame {
 	JLabel bird;
 	JButton start;
 	int numPipes;
 	//Icon pipe;
 	int numRunes;
 	//Icon rune;
-	public GameFrame(int pipes, int runes ) {
+	public GamePanel(int pipes, int runes ) {
 		// TODO Auto-generated constructor stub
 		numPipes = pipes;
 		numRunes = runes;

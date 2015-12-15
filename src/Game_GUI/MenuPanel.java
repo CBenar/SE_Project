@@ -4,9 +4,9 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 
-public class MenuFrame extends JFrame {
+public class MenuPanel extends JFrame {
 
-	public MenuFrame() {
+	public MenuPanel() {
 		// TODO Auto-generated constructor stub
 		
 		BirdPanel birdPanel = new BirdPanel();

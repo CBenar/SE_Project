@@ -10,7 +10,7 @@ public class Main extends JFrame {
 		System.out.println("Controller is initialized");
 		Controller controller = new Controller();
 		
-		MenuFrame menuFrame = new MenuFrame();
+		MenuPanel menuFrame = new MenuPanel();
 		controller.startGame();
 		
 	}

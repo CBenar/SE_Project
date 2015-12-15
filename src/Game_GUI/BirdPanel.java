@@ -33,6 +33,8 @@ public class BirdPanel extends JPanel {
 				int keyCode = e.getKeyCode();
 				if (keyCode == KeyEvent.VK_ENTER) {
 					System.out.println("Enter pressed");
+					closeBirdPanel();
+					startGameFrame();
 					//this.updateState("");
 				}
 				if (keyCode == KeyEvent.VK_RIGHT) {
@@ -57,6 +59,7 @@ public class BirdPanel extends JPanel {
 				int keyCode = e.getKeyCode();
 				if (keyCode == KeyEvent.VK_ENTER) {
 					System.out.println("Enter pressed");
+					closeBirdPanel();
 				}
 				if (keyCode == KeyEvent.VK_LEFT) {
 					System.out.println("Left pressed");
@@ -98,6 +101,13 @@ public class BirdPanel extends JPanel {
 	}
 	
 	public void updateState(String birdName) {
-		
+	}
+
+	public void closeBirdPanel(){
+		System.out.println("closeMenuFrame");
+		this.setVisible(false);
+	}
+	public void startGameFrame(){
+		GamePanel gameFrame = new GamePanel(4,4);		
 	}
 }
