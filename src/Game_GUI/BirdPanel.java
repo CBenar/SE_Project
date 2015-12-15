@@ -102,6 +102,7 @@ public class BirdPanel extends JPanel {
 	}
 	
 	public void updateState(String birdName) {
+		
 	}
 
 	public void closeBirdPanel(){
