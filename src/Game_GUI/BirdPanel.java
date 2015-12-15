@@ -27,7 +27,7 @@ public class BirdPanel extends JPanel {
 		selectionBird1 = createButtonWithImage(image1);
 		selectionBird1.setPreferredSize(new Dimension(200,200));
 		selectionBird1.addKeyListener(new KeyListener(){
-			@Override
+			
 			public void keyPressed(KeyEvent e) {
 				// TODO Auto-generated method stub
 				int keyCode = e.getKeyCode();
@@ -42,10 +42,10 @@ public class BirdPanel extends JPanel {
 					selectionBird2.requestFocusInWindow();
 				}
 			}
-			@Override
+			
 			public void keyReleased(KeyEvent arg0) {}
 	
-			@Override
+			
 			public void keyTyped(KeyEvent arg0) {}
 		});
 		
@@ -53,7 +53,7 @@ public class BirdPanel extends JPanel {
 		selectionBird2 = createButtonWithImage(image2);
 		selectionBird2.setPreferredSize(new Dimension(200,200));
 		selectionBird2.addKeyListener(new KeyListener(){
-			@Override
+			
 			public void keyPressed(KeyEvent e) {
 				// TODO Auto-generated method stub
 				int keyCode = e.getKeyCode();
@@ -66,12 +66,12 @@ public class BirdPanel extends JPanel {
 					selectionBird1.requestFocusInWindow();
 				}
 			}
-			@Override
+			
 			public void keyReleased(KeyEvent e) {
 				// TODO Auto-generated method stub
 				
 			}
-			@Override
+			
 			public void keyTyped(KeyEvent e) {
 				// TODO Auto-generated method stub
 				
