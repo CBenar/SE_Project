@@ -18,6 +18,7 @@ public class BirdPanel extends JPanel {
 	JButton selectionBird2;
 	BufferedImage image1;
 	BufferedImage image2;
+	BufferedImage image3;
 	
 	public BirdPanel() {
 		// TODO Auto-generated constructor stub	
