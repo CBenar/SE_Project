@@ -1,5 +1,5 @@
 package Game_GUI;
-//MertDokmeciTest
+
 import java.awt.Dimension;
 import java.awt.GridBagLayout;
 import java.awt.event.KeyEvent;
@@ -18,78 +18,24 @@ public class BirdPanel extends JPanel {
 	JButton selectionBird2;
 	BufferedImage image1;
 	BufferedImage image2;
-	BufferedImage image3;
 	
 	public BirdPanel() {
 		// TODO Auto-generated constructor stub	
 		this.setLayout(new GridBagLayout());
 		
 		image1 = getImage("bird.png");
-		selectionBird1 = createButtonWithImage(image1);
-		selectionBird1.setPreferredSize(new Dimension(200,200));
-		selectionBird1.addKeyListener(new KeyListener(){
+		createButton1(image1);
 			
-			public void keyPressed(KeyEvent e) {
-				// TODO Auto-generated method stub
-				int keyCode = e.getKeyCode();
-				if (keyCode == KeyEvent.VK_ENTER) {
-					System.out.println("Enter pressed");
-					closeBirdPanel();
-					startGameFrame();
-					//this.updateState("");
-				}
-				if (keyCode == KeyEvent.VK_RIGHT) {
-					System.out.println("Right pressed");
-					selectionBird2.requestFocusInWindow();
-				}
-			}
-			
-			public void keyReleased(KeyEvent arg0) {}
-	
-			
-			public void keyTyped(KeyEvent arg0) {}
-		});
-		
 		image2 = getImage("bird2.png");
-		selectionBird2 = createButtonWithImage(image2);
-		selectionBird2.setPreferredSize(new Dimension(200,200));
-		selectionBird2.addKeyListener(new KeyListener(){
+		createButton2(image2);
 			
-			public void keyPressed(KeyEvent e) {
-				// TODO Auto-generated method stub
-				int keyCode = e.getKeyCode();
-				if (keyCode == KeyEvent.VK_ENTER) {
-					System.out.println("Enter pressed");
-					closeBirdPanel();
-				}
-				if (keyCode == KeyEvent.VK_LEFT) {
-					System.out.println("Left pressed");
-					selectionBird1.requestFocusInWindow();
-				}
-			}
-			
-			public void keyReleased(KeyEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			public void keyTyped(KeyEvent e) {
-				// TODO Auto-generated method stub
-				
-			}	
-		});
-		
 		this.add(selectionBird1);
 		this.add(selectionBird2);
 		
 		this.setMaximumSize(new Dimension(400,400));
 		this.setVisible(true);
 	}
-	
-	public JButton createButtonWithImage(BufferedImage im) {
-		return new JButton(new ImageIcon(im));
-	}
-	
+		
 	public BufferedImage getImage(String imageName){
 		InputStream input = this.getClass().getClassLoader().getResourceAsStream(imageName);
 		if (input == null) System.out.println("input null");
@@ -109,7 +55,54 @@ public class BirdPanel extends JPanel {
 		System.out.println("closeMenuFrame");
 		this.setVisible(false);
 	}
-	public void startGameFrame(){
-		GamePanel gameFrame = new GamePanel(4,4);		
+	public void startGamePanel(){
+		GamePanel gamePanel = new GamePanel(4,4);
+		gamePanel.renderPipe(gamePanel.numPipes);
+		gamePanel.renderRune(gamePanel.numRunes);
+	}
+	public void createButton1(BufferedImage image){
+		selectionBird1 = new JButton(new ImageIcon(image));
+		selectionBird1.setPreferredSize(new Dimension(200,200));
+		selectionBird1.addKeyListener(new KeyListener(){
+			
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				int keyCode = e.getKeyCode();
+				if (keyCode == KeyEvent.VK_ENTER) {
+					System.out.println("Enter pressed");
+					closeBirdPanel();
+					startGamePanel();
+					//this.updateState("");
+				}
+				if (keyCode == KeyEvent.VK_RIGHT) {
+					System.out.println("Right pressed");
+					selectionBird2.requestFocusInWindow();
+				}
+			}
+			public void keyReleased(KeyEvent arg0) {}
+			public void keyTyped(KeyEvent arg0) {}
+		});
+	}
+	public void createButton2(BufferedImage image) {
+		selectionBird2 = new JButton(new ImageIcon(image));
+		selectionBird2.setPreferredSize(new Dimension(200,200));
+		selectionBird2.addKeyListener(new KeyListener(){
+			
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				int keyCode = e.getKeyCode();
+				if (keyCode == KeyEvent.VK_ENTER) {
+					System.out.println("Enter pressed");
+					closeBirdPanel();
+					startGamePanel();
+				}
+				if (keyCode == KeyEvent.VK_LEFT) {
+					System.out.println("Left pressed");
+					selectionBird1.requestFocusInWindow();
+				}
+			}
+			public void keyReleased(KeyEvent e) {}
+			public void keyTyped(KeyEvent e) {}	
+		});
 	}
 }

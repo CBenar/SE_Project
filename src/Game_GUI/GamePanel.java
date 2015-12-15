@@ -22,10 +22,8 @@ public class GamePanel extends JFrame {
 		numRunes = runes;
 		bird = new JLabel(); 
 		start = new JButton();
-		//renderRunes(numRunes, );
-		renderPipe(numPipes);
-		
 		this.setLayout(null);
+		this.setVisible(true);
 	}
 	
 	public void renderPipe(int numObjects) {
