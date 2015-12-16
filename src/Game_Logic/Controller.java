@@ -3,6 +3,7 @@ package Game_Logic;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import Game_GUI.BirdPanel;
@@ -39,15 +40,62 @@ public class Controller implements KeyListener {
 
 	}
 	public BirdPanel startBirdPanel() {
-		
+
 		BirdPanel birdPanel = new BirdPanel();
 		Bird yellowBird = new Bird();
 		Bird redBird = new Bird();
-		birdPanel.add(birdPanel.createBirdButton(yellowBird, "bird.png"));
-		birdPanel.add(birdPanel.createBirdButton(redBird, "bird2.png"));
+		final JButton leftButton = birdPanel.createBirdButton(yellowBird, "bird.png");
+		final JButton rightButton = birdPanel.createBirdButton(redBird, "bird2.png");
+		addKeyLeftListener(leftButton, rightButton);
+		addKeyRightListener(leftButton, rightButton);
+		birdPanel.add(leftButton);
+		birdPanel.add(rightButton);
 		return birdPanel;
 
 
+	}
+	private void addKeyRightListener(final JButton rightButton,
+			final JButton leftButton) {
+		leftButton.addKeyListener(new KeyListener(){
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				int keyCode = e.getKeyCode();
+				if (keyCode == KeyEvent.VK_ENTER) {
+					System.out.println("Enter pressed");
+					//closeBirdPanel();
+					//startGamePanel();
+					//updateModel("yellow_bird");
+				}
+				if (keyCode == KeyEvent.VK_LEFT) {
+					System.out.println("Right pressed");
+					rightButton.requestFocusInWindow();
+				}
+			}
+			public void keyReleased(KeyEvent arg0) {}
+			public void keyTyped(KeyEvent arg0) {}
+		});
+	}
+	
+	private void addKeyLeftListener(final JButton leftButton,
+			final JButton rightButton) {
+		leftButton.addKeyListener(new KeyListener(){
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				int keyCode = e.getKeyCode();
+				if (keyCode == KeyEvent.VK_ENTER) {
+					System.out.println("Enter pressed");
+					//closeBirdPanel();
+					//startGamePanel();
+					//updateModel("yellow_bird");
+				}
+				if (keyCode == KeyEvent.VK_RIGHT) {
+					System.out.println("Right pressed");
+					rightButton.requestFocusInWindow();
+				}
+			}
+			public void keyReleased(KeyEvent arg0) {}
+			public void keyTyped(KeyEvent arg0) {}
+		});
 	}
 	public Boolean checkCollision() {
 
@@ -71,4 +119,5 @@ public class Controller implements KeyListener {
 		// TODO Auto-generated method stub
 
 	}
+
 }

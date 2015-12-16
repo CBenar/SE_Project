@@ -17,10 +17,7 @@ import javax.swing.JPanel;
 import Game_State.Bird;
 
 public class BirdPanel extends JPanel {
-	JButton selectionBird1;
-	JButton selectionBird2;
-	BufferedImage image1;
-	BufferedImage image2;
+	
 	Bird bird = new Bird();
 	
 	public BirdPanel() {
@@ -46,11 +43,14 @@ public class BirdPanel extends JPanel {
 	public void startGamePanel(){
 		//GamePanel gamePanel = new GamePanel();
 	}
+	
 	public JButton createBirdButton(Bird bird , String name){
 		JButton selectionBird = new JButton(new ImageIcon(bird.getImage(name)));
 		selectionBird.setPreferredSize(new Dimension(200,200));
 		return selectionBird;
 		
 	}
+	
+	
 	
 }
