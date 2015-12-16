@@ -182,7 +182,7 @@ public class Controller  {
 				if (keyCode == KeyEvent.VK_ENTER) {
 					System.out.println("Start button pressed");
 					gamePanel.isStarted = true;
-					gamePanel.repaint();
+					
 				}
 			}
 			public void keyReleased(KeyEvent arg0) {}
