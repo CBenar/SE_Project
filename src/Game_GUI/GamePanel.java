@@ -6,10 +6,10 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-public class GamePanel extends JFrame {
+public class GamePanel extends JPanel {
 	JLabel bird;
 	JButton start;
 	int numPipes;
