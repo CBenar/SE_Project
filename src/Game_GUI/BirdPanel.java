@@ -18,7 +18,6 @@ import Game_State.Bird;
 
 public class BirdPanel extends JPanel {
 	
-	Bird bird = new Bird();
 	
 	public BirdPanel() {
 		// TODO Auto-generated constructor stub	

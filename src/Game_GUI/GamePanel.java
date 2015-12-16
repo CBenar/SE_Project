@@ -1,5 +1,7 @@
 package Game_GUI;
 
+import java.awt.Dimension;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -9,14 +11,20 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Game_State.Bird;
+
 public class GamePanel extends JPanel {
-	JLabel bird;
+	Bird selectedBird;
+	BufferedImage birdImage;
 	JButton start;
 	//Icon rune;
-	public GamePanel(String birdName ) {
-		
-		bird = new JLabel(); 
+	public GamePanel(Bird bird ) {
+		this.selectedBird = bird;
+		this.birdImage = bird.getImage(bird.getName());
 		start = new JButton();
+		
+		this.setMaximumSize(new Dimension(500,400));
+		
 		this.setLayout(null);
 		this.setVisible(true);
 	}
@@ -33,6 +41,7 @@ public class GamePanel extends JPanel {
 			add(new JLabel());
 		}
 	}
+	
 	public Icon getIcon (String iconName) {
 		InputStream input = this.getClass().getClassLoader().getResourceAsStream(iconName);
 		if (input == null) System.out.println("input null");

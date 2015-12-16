@@ -12,10 +12,10 @@ public class Bird extends PhysicalObject {
 	int speedY;
 	int life;
 	BufferedImage birdImage;
-	public Bird() {
-		// TODO Auto-generated constructor stub
-	}
-	
+	public Bird(String name) {
+		this.name=name	;
+				}
+
 	public String getName() {
 		return name;
 	}
@@ -34,16 +34,16 @@ public class Bird extends PhysicalObject {
 	public void setLife(int life) {
 		this.life = life;
 	}
-	
+
 	public BufferedImage getImage(String name){
 		InputStream input = this.getClass().getClassLoader().getResourceAsStream(name);
 		if (input == null) System.out.println("input null");
 		try {
 			birdImage = ImageIO.read(input);
-		    return birdImage;
+			return birdImage;
 		} catch (IOException e) {
-		    e.printStackTrace();
-		    return null;
+			e.printStackTrace();
+			return null;
 		}
 	}
 
