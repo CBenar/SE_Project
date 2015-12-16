@@ -1,12 +1,16 @@
 package Game_Logic;
 
-import java.awt.Color;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import Game_GUI.BirdPanel;
 import Game_GUI.GamePanel;
@@ -14,42 +18,100 @@ import Game_State.Bird;
 import Game_State.Pipe;
 
 public class Controller  {
-	
-public  boolean flag ;
-public static Bird selectedBird;
-public 	static	GamePanel gamePanel ;
 
+	public  boolean flag ;
+	public static Bird selectedBird;
+	public 	static	GamePanel gamePanel ;
+	JLabel pipe1 ;
+	JLabel pipe2;
+	JLabel pipe3 ;
+	JLabel pipe4;
+	//	public Pipe pipeDown;
+	//	public Pipe pipeUp;
+	public BirdPanel birdPanel;
 	public Controller() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void selectBird() {
-
-
-	}
-
 
 	public GamePanel startGamePanel() {
-		 gamePanel = new GamePanel(selectedBird);
-		Pipe pipeDown = gamePanel.pipeDown;
-		Pipe pipeUp = gamePanel.pipeUp;
-		//flowPipes(pipeDown, pipeUp);
 		
+		gamePanel = new GamePanel(selectedBird);
+		final Pipe pipeDown = new Pipe("pipe_north.png");
+		final Pipe pipeUp = new Pipe("pipe_south.png");
+
+
+
+		Thread t = new Thread(new Runnable() {
+			public void run() {
+
+				pipe1 = createPipe(pipeDown, 60, 400);
+				pipe2 = createPipe(pipeUp, 60, -150);
+				pipe3 = createPipe(pipeDown, 400, 450);
+				pipe4 = createPipe(pipeUp,  350, -120);
+				gamePanel.backgroundLabel.add(pipe1);
+				gamePanel.backgroundLabel.add(pipe2);
+				gamePanel.backgroundLabel.add(pipe3);
+				gamePanel.backgroundLabel.add(pipe4);
+				
+				try{
+
+					while(true){
+
+						pipe1.setLocation((pipe1.getLocationOnScreen().x-10), 400);
+						pipe2.setLocation((pipe2.getLocationOnScreen().x-10), -150);
+						pipe3.setLocation((pipe3.getLocationOnScreen().x-10), 450);
+						pipe4.setLocation((pipe4.getLocationOnScreen().x-10), -120);
+						if(pipe1.getLocationOnScreen().x < -200 || pipe2.getLocationOnScreen().x < -200 ||
+								pipe4.getLocationOnScreen().x < -200 ||pipe4.getLocationOnScreen().x < -200 ){
+							pipe1.setLocation(560,400);
+							pipe2.setLocation(560,-150);
+							pipe3.setLocation(900,450);
+							pipe4.setLocation(1050,-120);
+
+						}
+						Thread.sleep(100);  
+					} 
+				}catch(Exception ae){
+
+				}
+			}
+		});
+		t.start();
+
+		
+
 		return gamePanel;
 
+
 	}
 
-	
+
+	private JLabel createPipe(Pipe pipe, int x , int y) {
+		JLabel pipeLabel = new JLabel(new ImageIcon(pipe.getImage(pipe.getName())));
+
+		pipeLabel.setBounds(x,y, 400,400);
+		System.out.println("created" + pipe.getName());
+
+		return pipeLabel;
+	}
+
+
 	public void gameOver() {
+		//	if(isCrashed()) createReturnButton();
 
 	}
 
-	
-	
-	
+
+	private JButton createReturnButton() {
+		JButton button = new JButton();		
+		return button;
+	}
+
+
 	public BirdPanel startBirdPanel() {
 
-		BirdPanel birdPanel = new BirdPanel();
+		birdPanel = new BirdPanel();
 		Bird yellowBird = new Bird("yellow bird.png");
 		Bird redBird = new Bird("red bird.png");
 		final JButton leftButton = birdPanel.createBirdButton(yellowBird, yellowBird.getName() );
@@ -72,8 +134,7 @@ public 	static	GamePanel gamePanel ;
 					System.out.println("Enter pressed");
 					selectedBird = bird;
 					flag = true;
-					startGamePanel();
-					
+
 				}
 				if (keyCode == KeyEvent.VK_LEFT) {
 					System.out.println("Left pressed");
@@ -105,12 +166,12 @@ public 	static	GamePanel gamePanel ;
 			public void keyTyped(KeyEvent arg0) {}
 		});
 	}
-	
-	public Boolean checkCollision() {
 
-		return false;
+	public Boolean isCrashed(Pipe pipe) {
+		if(pipe.getLocation() == selectedBird.getLocation())	return true;
+		else return false;
 	}
-
+	
 
 
 }
