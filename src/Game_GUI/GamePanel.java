@@ -38,7 +38,7 @@ public class GamePanel extends JPanel {
 
 	public Image createBackground() throws IOException{
 
-		InputStream input = this.getClass().getClassLoader().getResourceAsStream("x.jpg");
+		InputStream input = this.getClass().getClassLoader().getResourceAsStream("newBG.png");
 
 		background = ImageIO.read(input);
 
