@@ -33,7 +33,7 @@ public class GamePanel extends JPanel {
 		
 		this.setMaximumSize(new Dimension(500,400));
 		
-		this.setLayout(null);
+		//this.setLayout();
 		this.setVisible(true);
 	}
 	
@@ -107,5 +107,7 @@ public class GamePanel extends JPanel {
 		}
 		
 
+		
+		
 	}
 }
