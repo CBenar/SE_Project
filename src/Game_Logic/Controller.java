@@ -184,6 +184,11 @@ public class Controller  {
 					gamePanel.isStarted = true;
 					
 				}
+				if (keyCode == KeyEvent.VK_SPACE) {
+					System.out.println("Space button pressed");
+					gamePanel.isStarted = true;
+					
+				}
 			}
 			public void keyReleased(KeyEvent arg0) {}
 			public void keyTyped(KeyEvent arg0) {}
@@ -193,6 +198,8 @@ public class Controller  {
 		if(pipe.getLocation() == selectedBird.getLocation())	return true;
 		else return false;
 	}
+	
+
 
 
 
