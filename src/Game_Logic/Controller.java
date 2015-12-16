@@ -186,8 +186,8 @@ public class Controller  {
 				}
 				if (keyCode == KeyEvent.VK_SPACE) {
 					System.out.println("Space button pressed");
-					gamePanel.isStarted = true;
-					
+				
+					gamePanel.birdLabel.setBounds(gamePanel.birdLabel.getLocationOnScreen().x,gamePanel.birdLabel.getLocationOnScreen().y-50,50,50);
 				}
 			}
 			public void keyReleased(KeyEvent arg0) {}
