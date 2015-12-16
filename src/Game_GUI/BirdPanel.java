@@ -24,23 +24,8 @@ public class BirdPanel extends JPanel {
 		this.setLayout(new GridBagLayout());
 		
 		
-		this.setMaximumSize(new Dimension(400,400));
+		this.setMaximumSize(new Dimension(600,600));
 		this.setVisible(true);
-	}
-		
-	
-	
-	public void updateState(String birdName) {
-		
-	}
-
-	public void closeBirdPanel(){
-
-		System.out.println("closeMenuFrame");
-		this.setVisible(false);
-	}
-	public void startGamePanel(){
-		//GamePanel gamePanel = new GamePanel();
 	}
 	
 	public JButton createBirdButton(Bird bird , String name){
@@ -49,7 +34,5 @@ public class BirdPanel extends JPanel {
 		return selectionBird;
 		
 	}
-	
-	
 	
 }
