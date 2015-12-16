@@ -21,6 +21,8 @@ public class GamePanel extends JPanel {
 	BufferedImage pipeSouth;
 	BufferedImage pipeNorth;
 	BufferedImage background;
+	
+	
 
 	JButton start;
 	//Icon rune;
