@@ -12,14 +12,9 @@ import javax.swing.JPanel;
 public class GamePanel extends JPanel {
 	JLabel bird;
 	JButton start;
-	int numPipes;
-	//Icon pipe;
-	int numRunes;
 	//Icon rune;
-	public GamePanel(int pipes, int runes ) {
-		// TODO Auto-generated constructor stub
-		numPipes = pipes;
-		numRunes = runes;
+	public GamePanel(String birdName ) {
+		
 		bird = new JLabel(); 
 		start = new JButton();
 		this.setLayout(null);
