@@ -29,9 +29,10 @@ public class Main {
 			System.out.println(controller.flag);
 		}
 	
-		birdP.setVisible(false);
+		
 		
 		mainFrame.add(controller.startGamePanel());
+		birdP.setVisible(false);
 		System.out.println(controller.flag);
 	
 
