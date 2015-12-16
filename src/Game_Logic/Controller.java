@@ -59,10 +59,11 @@ public class Controller  {
 				try{
 					while(true){
 						if (gamePanel.isStarted){
-							pipe1.setLocation((pipe1.getLocationOnScreen().x-10), 400);
-							pipe2.setLocation((pipe2.getLocationOnScreen().x-10), -150);
-							pipe3.setLocation((pipe3.getLocationOnScreen().x-10), 450);
-							pipe4.setLocation((pipe4.getLocationOnScreen().x-10), -120);
+							pipe1.setLocation((pipe1.getLocationOnScreen().x-33), 400);
+							pipe2.setLocation((pipe2.getLocationOnScreen().x-33), -150);
+							pipe3.setLocation((pipe3.getLocationOnScreen().x-33), 450);
+							pipe4.setLocation((pipe4.getLocationOnScreen().x-33), -120);
+							gamePanel.birdLabel.setBounds(gamePanel.birdLabel.getLocationOnScreen().x-12,gamePanel.birdLabel.getLocationOnScreen().y-20,50,50);
 							if(pipe1.getLocationOnScreen().x < -200 || pipe2.getLocationOnScreen().x < -200 ||
 									pipe4.getLocationOnScreen().x < -200 ||pipe4.getLocationOnScreen().x < -200 ){
 								pipe1.setLocation(560,400);
@@ -185,9 +186,10 @@ public class Controller  {
 					
 				}
 				if (keyCode == KeyEvent.VK_SPACE) {
+					
 					System.out.println("Space button pressed");
 				
-					gamePanel.birdLabel.setBounds(gamePanel.birdLabel.getLocationOnScreen().x,gamePanel.birdLabel.getLocationOnScreen().y-50,50,50);
+					gamePanel.birdLabel.setBounds(gamePanel.birdLabel.getLocationOnScreen().x+4,gamePanel.birdLabel.getLocationOnScreen().y-70,50,50);
 				}
 			}
 			public void keyReleased(KeyEvent arg0) {}
