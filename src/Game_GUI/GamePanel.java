@@ -92,6 +92,7 @@ public class GamePanel extends JPanel {
 			e.printStackTrace();
 		}
 		try {
+			
 			g.drawImage(createPipeSouth(), 100, 100 , null);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
