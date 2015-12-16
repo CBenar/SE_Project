@@ -27,16 +27,16 @@ public class GamePanel extends JPanel {
 	public JLabel backgroundLabel;
 	public JLabel birdLabel;
 	int x = 10;
-
+	
 	public Pipe pipeUp = new Pipe("pipe_north.png");
 	public Pipe pipeDown = new Pipe("pipe_south.png");
-
+	public boolean isStarted = false;
 	JButton start;
 
 	public GamePanel(Bird bird ) {
 		this.selectedBird = bird;
 		birdLabel = new JLabel ( new ImageIcon(bird.getImage(selectedBird.getName())));
-		backgroundLabel = new JLabel ( new ImageIcon(getImage("x.jpg")));
+		backgroundLabel = new JLabel (new ImageIcon(getImage("newBG.png")));
 		birdLabel.setBounds(400,300,50,50);
 		backgroundLabel.setBounds(0, 0, 800, 600);
 		this.setMaximumSize(new Dimension(500,400));
@@ -46,6 +46,12 @@ public class GamePanel extends JPanel {
 		backgroundLabel.add(birdLabel);
 		this.setVisible(true);
 
+	}
+	public JButton createStartButton(){
+		JButton startButton = new JButton("Start");
+		startButton.setPreferredSize(new Dimension(200,200));
+		isStarted = false;
+		return startButton;
 	}
 	public BufferedImage getImage(String name){
 		InputStream input = this.getClass().getClassLoader().getResourceAsStream(name);
